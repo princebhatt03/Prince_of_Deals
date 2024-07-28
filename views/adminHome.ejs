@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html
+  class="no-js"
+  lang="en">
+  <head>
+    <meta
+      http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+    <meta
+      http-equiv="x-ua-compatible"
+      content="ie=edge" />
+    <title>Prince of Deals</title>
+    <meta
+      name="description"
+      content="description" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      href="/images/favIcons.png" />
+    <link
+      rel="stylesheet"
+      href="/css/plugins.css" />
+    <link
+      rel="stylesheet"
+      href="/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/css/responsive.css" />
+  </head>
+  <body class="page-template belle">
+    <div id="pre-loader">
+      <img
+        src="/images/loader.gif"
+        alt="Loading..." />
+    </div>
+    <div class="pageWrapper">
+      <div class="search">
+        <div class="search__form">
+          <form
+            class="search-bar__form"
+            action="#">
+            <button
+              class="go-btn search__button"
+              type="submit">
+              <i class="icon anm anm-search-l"></i>
+            </button>
+            <input
+              class="search__input"
+              type="search"
+              name="q"
+              value=""
+              placeholder="Search entire store..."
+              aria-label="Search"
+              autocomplete="off" />
+          </form>
+          <button
+            type="button"
+            class="search-trigger close-btn">
+            <i class="icon anm anm-times-l"></i>
+          </button>
+        </div>
+      </div>
+      <div class="top-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-10 col-sm-8 col-md-5 col-lg-4">
+              <div class="currency-picker">
+                <span class="selected-currency">USD</span>
+                <ul id="currencies">
+                  <li
+                    data-currency="INR"
+                    class="">
+                    INR
+                  </li>
+                  <li
+                    data-currency="GBP"
+                    class="">
+                    GBP
+                  </li>
+                  <li
+                    data-currency="CAD"
+                    class="">
+                    CAD
+                  </li>
+                  <li
+                    data-currency="USD"
+                    class="selected">
+                    USD
+                  </li>
+                  <li
+                    data-currency="AUD"
+                    class="">
+                    AUD
+                  </li>
+                  <li
+                    data-currency="EUR"
+                    class="">
+                    EUR
+                  </li>
+                  <li
+                    data-currency="JPY"
+                    class="">
+                    JPY
+                  </li>
+                </ul>
+              </div>
+              <div class="language-dropdown">
+                <span class="language-dd">English</span>
+                <ul id="language">
+                  <li class="">German</li>
+                  <li class="">French</li>
+                </ul>
+              </div>
+              <p class="phone-no">
+                <i class="anm anm-phone-s"></i> +440 0(111) 044 833
+              </p>
+            </div>
+            <div
+              class="col-sm-4 col-md-4 col-lg-4 d-none d-lg-none d-md-block d-lg-block">
+              <div class="text-center cursor-pointer">
+                <p class="top-header_middle-text">Admin's Dashboard</p>
+              </div>
+            </div>
+            <div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">
+              <span class="user-menu d-block d-lg-none"
+                ><i
+                  class="anm anm-user-al"
+                  aria-hidden="true"></i
+              ></span>
+              <ul class="customer-links list-inline">
+                <li>
+                  <a href="#"><div class="name"><%= user.username %></div></a>
+                </li>
+                <li>
+                  <a href="#"><div class="about"><%= user.name %></div></a>
+                </li>
+                <li>
+                  <a href="/adminsProf"
+                    ><div class="about">Edit profile</div></a
+                  >
+                </li>
+                <li><a href="/logout">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Body Content-->
+      <!-- <div
+        style="font-size: 20px"
+        class="alert alert-success text-center">
+        <strong>Success!</strong>User Logged-In Successfully...
+      </div> -->
+      <div id="page-content">
+        <!--Featured Product-->
+        <div class="product-rows section">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="section-header text-center">
+                  <h2 class="h2">Your Featured Products</h2>
+                  <p>Products in Your Inventory</p>
+                  <button
+                    class="btn"
+                    onclick="location.href='/dashboard'">
+                    Add More Products
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="related-product grid-products">
+              <div class="productPageSlider">
+                <div class="col-12 item">
+                  <!-- start product image -->
+                  <div class="product-image">
+                    <!-- start product image -->
+                    <a href="#">
+                      <!-- image -->
+                      <img
+                        class="primary blur-up lazyload"
+                        data-src="/images/product-images/product-image6.jpg"
+                        src="/images/product-images/product-image6.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End image -->
+                      <!-- Hover image -->
+                      <img
+                        class="hover blur-up lazyload"
+                        data-src="/images/product-images/product-image6-1.jpg"
+                        src="/images/product-images/product-image6-1.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End hover image -->
+                      <!-- product label -->
+                      <div class="product-labels rectangular">
+                        <span class="lbl on-sale">-16%</span>
+                        <span class="lbl pr-label1">new</span>
+                      </div>
+                      <!-- End product label -->
+                    </a>
+                    <!-- end product image -->
+                  </div>
+                  <!-- end product image -->
+
+                  <!--start product details -->
+                  <div class="product-details text-center">
+                    <!-- product name -->
+                    <div class="product-name">
+                      <a href="#">Zipper Jacket</a>
+                    </div>
+                    <!-- End product name -->
+                  </div>
+                  <!-- End product details -->
+                </div>
+                <div class="col-12 item">
+                  <!-- start product image -->
+                  <div class="product-image">
+                    <!-- start product image -->
+                    <a href="#">
+                      <!-- image -->
+                      <img
+                        class="primary blur-up lazyload"
+                        data-src="/images/product-images/product-image7.jpg"
+                        src="/images/product-images/product-image7.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End image -->
+                      <!-- Hover image -->
+                      <img
+                        class="hover blur-up lazyload"
+                        data-src="/images/product-images/product-image7-1.jpg"
+                        src="/images/product-images/product-image7-1.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End hover image -->
+                    </a>
+                    <!-- end product image -->
+                  </div>
+                  <!-- end product image -->
+
+                  <!--start product details -->
+                  <div class="product-details text-center">
+                    <!-- product name -->
+                    <div class="product-name">
+                      <a href="#">Zipper Jacket</a>
+                    </div>
+                    <!-- End product name -->
+                  </div>
+                  <!-- End product details -->
+                </div>
+                <div class="col-12 item">
+                  <!-- start product image -->
+                  <div class="product-image">
+                    <!-- start product image -->
+                    <a href="#">
+                      <!-- image -->
+                      <img
+                        class="primary blur-up lazyload"
+                        data-src="/images/product-images/product-image8.jpg"
+                        src="/images/product-images/product-image8.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End image -->
+                      <!-- Hover image -->
+                      <img
+                        class="hover blur-up lazyload"
+                        data-src="/images/product-images/product-image8-1.jpg"
+                        src="/images/product-images/product-image8-1.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End hover image -->
+                    </a>
+                    <!-- end product image -->
+                  </div>
+
+                  <!-- end product image -->
+
+                  <!--start product details -->
+                  <div class="product-details text-center">
+                    <!-- product name -->
+                    <div class="product-name">
+                      <a href="#">Workers Shirt Jacket</a>
+                    </div>
+                    <!-- End product name -->
+                  </div>
+                  <!-- End product details -->
+                </div>
+                <div class="col-12 item">
+                  <!-- start product image -->
+                  <div class="product-image">
+                    <!-- start product image -->
+                    <a href="#">
+                      <!-- image -->
+                      <img
+                        class="primary blur-up lazyload"
+                        data-src="/images/product-images/product-image9.jpg"
+                        src="/images/product-images/product-image9.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End image -->
+                      <!-- Hover image -->
+                      <img
+                        class="hover blur-up lazyload"
+                        data-src="/images/product-images/product-image9-1.jpg"
+                        src="/images/product-images/product-image9-1.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End hover image -->
+                    </a>
+                    <!-- end product image -->
+                  </div>
+                  <!-- end product image -->
+
+                  <!--start product details -->
+                  <div class="product-details text-center">
+                    <!-- product name -->
+                    <div class="product-name">
+                      <a href="#">Watercolor Sport Jacket in Brown/Blue</a>
+                    </div>
+                    <!-- End product name -->
+                  </div>
+                  <!-- End product details -->
+                </div>
+                <div class="col-12 item">
+                  <!-- start product image -->
+                  <div class="product-image">
+                    <!-- start product image -->
+                    <a href="#">
+                      <!-- image -->
+                      <img
+                        class="primary blur-up lazyload"
+                        data-src="/images/product-images/product-image10.jpg"
+                        src="/images/product-images/product-image10.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End image -->
+                      <!-- Hover image -->
+                      <img
+                        class="hover blur-up lazyload"
+                        data-src="/images/product-images/product-image10-1.jpg"
+                        src="/images/product-images/product-image10-1.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End hover image -->
+                    </a>
+                    <!-- end product image -->
+                  </div>
+                  <!-- end product image -->
+
+                  <!--start product details -->
+                  <div class="product-details text-center">
+                    <!-- product name -->
+                    <div class="product-name">
+                      <a href="#">Washed Wool Blazer</a>
+                    </div>
+                    <!-- End product name -->
+                  </div>
+                  <!-- End product details -->
+                </div>
+                <div class="col-12 item">
+                  <!-- start product image -->
+                  <div class="product-image">
+                    <!-- start product image -->
+                    <a href="#">
+                      <!-- image -->
+                      <img
+                        class="primary blur-up lazyload"
+                        data-src="/images/product-images/product-image13.jpg"
+                        src="/images/product-images/product-image13.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End image -->
+                      <!-- Hover image -->
+                      <img
+                        class="hover blur-up lazyload"
+                        data-src="/images/product-images/product-image13-1.jpg"
+                        src="/images/product-images/product-image13-1.jpg"
+                        alt="image"
+                        title="product" />
+                      <!-- End hover image -->
+                    </a>
+                    <!-- end product image -->
+                  </div>
+
+                  <!-- end product image -->
+
+                  <!--start product details -->
+                  <div class="product-details text-center">
+                    <!-- product name -->
+                    <div class="product-name">
+                      <a href="#">Ashton Necklace</a>
+                    </div>
+                    <!-- End product name -->
+                  </div>
+                  <!-- End product details -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End Featured Product-->
+      </div>
+
+      <!--End Body Content-->
+
+      <!--Footer-->
+      <footer id="footer">
+        <div class="site-footer">
+          <div class="container">
+            <!--Footer Links-->
+            <div class="footer-top">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
+                  <h4 class="h4">Quick Shop</h4>
+                  <ul>
+                    <li><a href="/gift">Women</a></li>
+                    <li><a href="/col">Men</a></li>
+                    <li><a href="/bs">Kids</a></li>
+                    <li><a href="/wint">Sportswear</a></li>
+                    <li><a href="/off">Sale</a></li>
+                  </ul>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
+                  <h4 class="h4">Informations</h4>
+                  <ul>
+                    <li><a href="/about">About us</a></li>
+                    <li><a href="/cos">Careers</a></li>
+                    <li><a href="/fur">Privacy policy</a></li>
+                    <li><a href="/col">Terms &amp; condition</a></li>
+                    <li><a href="/">My Account</a></li>
+                  </ul>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
+                  <h4 class="h4">Customer Services</h4>
+                  <ul>
+                    <li><a href="/contact">Request Personal Data</a></li>
+                    <li><a href="/faq">FAQ's</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/off">Orders and Returns</a></li>
+                    <li><a href="/off">Support Center</a></li>
+                  </ul>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3 contact-box">
+                  <h4 class="h4">Contact Us</h4>
+                  <ul class="addressFooter">
+                    <li>
+                      <i class="icon anm anm-map-marker-al"></i>
+                      <p>55 Gallaxy Enque,<br />2568 steet, 23568 NY</p>
+                    </li>
+                    <li class="phone">
+                      <i class="icon anm anm-phone-s"></i>
+                      <p>(440) 000 000 0000</p>
+                    </li>
+                    <li class="email">
+                      <i class="icon anm anm-envelope-l"></i>
+                      <p>sales@yousite.com</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--End Footer Links-->
+            <hr />
+            <div class="footer-bottom">
+              <div class="row">
+                <!--Footer Copyright-->
+                <div
+                  class="col-12 col-sm-12 col-md-6 col-lg-6 order-1 order-md-0 order-lg-0 order-sm-1 copyright text-sm-center text-md-left text-lg-left">
+                  <span></span
+                  ><a href="https://www.linkedin.com/in/prince-bhatt-0958a725a/"
+                    >Created by Prince Bhatt</a
+                  >
+                </div>
+                <!--End Footer Copyright-->
+                <!--Footer Payment Icon-->
+                <div
+                  class="col-12 col-sm-12 col-md-6 col-lg-6 order-0 order-md-1 order-lg-1 order-sm-0 payment-icons text-right text-md-center">
+                  <ul class="payment-icons list--inline">
+                    <li>
+                      <i
+                        class="icon fa fa-cc-visa"
+                        aria-hidden="true"></i>
+                    </li>
+                    <li>
+                      <i
+                        class="icon fa fa-cc-mastercard"
+                        aria-hidden="true"></i>
+                    </li>
+                    <li>
+                      <i
+                        class="icon fa fa-cc-discover"
+                        aria-hidden="true"></i>
+                    </li>
+                    <li>
+                      <i
+                        class="icon fa fa-cc-paypal"
+                        aria-hidden="true"></i>
+                    </li>
+                    <li>
+                      <i
+                        class="icon fa fa-cc-amex"
+                        aria-hidden="true"></i>
+                    </li>
+                    <li>
+                      <i
+                        class="icon fa fa-credit-card"
+                        aria-hidden="true"></i>
+                    </li>
+                  </ul>
+                </div>
+                <!--End Footer Payment Icon-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!--End Footer-->
+      <!--Scoll Top-->
+      <span id="site-scroll"><i class="icon anm anm-angle-up-r"></i></span>
+      <!--End Scoll Top-->
+
+      <!-- Including Jquery -->
+      <script src="javascripts/js/vendor/jquery-3.3.1.min.js"></script>
+      <script src="javascripts/js/vendor/jquery.cookie.js"></script>
+      <script src="javascripts/js/vendor/modernizr-3.6.0.min.js"></script>
+      <script src="javascripts/js/vendor/wow.min.js"></script>
+      <script src="javascripts/js/bootstrap.min.js"></script>
+      <script src="javascripts/js/plugins.js"></script>
+      <script src="javascripts/js/popper.min.js"></script>
+      <script src="javascripts/js/lazysizes.js"></script>
+      <script src="javascripts/js/main.js"></script>
+    </div>
+  </body>
+</html>
