@@ -261,22 +261,6 @@ router.post('/adminS', function (req, res, next) {
   });
 });
 
-module.exports = router;
-
-// router.post('/adminS', (req, res) => {
-//   const { id, username, name, email, password } = req.body;
-//   const newUser = new User({ id, username, name, email, role: 'admin' });
-//   User.register(newUser, password, (err, user) => {
-//     if (err) {
-//       req.flash('error', err.message);
-//       return res.redirect('/adminS');
-//     }
-//     passport.authenticate('local')(req, res, () => {
-//       res.redirect('/adminsHome');
-//     });
-//   });
-// });
-
 // Logout route
 router.get('/logout', (req, res, next) => {
   req.logout(err => {

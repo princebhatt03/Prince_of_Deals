@@ -7,18 +7,24 @@ mongoose.connect(
 
 const userSchema = new mongoose.Schema({
   id: {
-    type: String,
+    type: Number,
     unique: true,
-    sparse: true,
+    required: true,
   },
   username: {
     type: String,
     unique: true,
     sparse: true,
   },
-  name: String,
-  email: String,
-  password: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+  },
   role: {
     type: String,
     enum: ['user', 'admin'],
@@ -28,6 +34,8 @@ const userSchema = new mongoose.Schema({
 
 userSchema.plugin(plm, {
   usernameField: 'username',
+  hashField: 'hash',
+  saltField: 'salt',
 });
 
 const User = mongoose.model('User', userSchema);
