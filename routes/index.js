@@ -4,14 +4,10 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const userModel = require('./users');
 
-// Passport configuration
 passport.use(new LocalStrategy(userModel.authenticate()));
 passport.serializeUser(userModel.serializeUser());
 passport.deserializeUser(userModel.deserializeUser());
 
-// Login route
-
-// Registration route
 router.get('/reg', (req, res) => {
   res.render('register', { error: req.flash('error') });
 });
@@ -25,7 +21,6 @@ router.get('/adminS', (req, res) => {
   res.render('adminSignup', { error: req.flash('error') });
 });
 
-// Home route - requires authentication
 router.get('/adminsHome', isLoggedIn, async (req, res) => {
   const user = await userModel.findOne({
     username: req.session.passport.user,
@@ -177,7 +172,6 @@ router.get('/off', isLoggedIn, async function (req, res, next) {
   res.render('offers', { user });
 });
 
-// Login POST route
 router.post(
   '/',
   passport.authenticate('local', {
@@ -196,37 +190,12 @@ router.post(
   })
 );
 
-// router.post('/adminL', (req, res) => {
-//   const userId = req.body.id;
-//   const password = req.body.password;
-
-//   if (!userId || !password) {
-//     req.flash('error', err.message);
-//     return res.redirect('/adminL');
-//   }
-//   res.redirect('/adminsHome');
-// });
-
-// SignUp POST route
-// router.post('/reg', (req, res) => {
-//   const { username, name, email, password } = req.body;
-//   const newUser = new User({ username, name, email, role: 'user' });
-//   User.register(newUser, password, (err, user) => {
-//     if (err) {
-//       req.flash('error', err.message);
-//       return res.redirect('/reg');
-//     }
-//     passport.authenticate('local')(req, res, () => {
-//       res.redirect('/home');
-//     });
-//   });
-// });
 router.post('/reg', function (req, res, next) {
   const userdata = new userModel({
     username: req.body.username,
     name: req.body.name,
     email: req.body.email,
-    role: 'user', // Set the role to 'user'
+    role: 'user',
   });
 
   userModel.register(userdata, req.body.password, function (err, user) {
@@ -240,14 +209,13 @@ router.post('/reg', function (req, res, next) {
   });
 });
 
-// Admin's SignUp
 router.post('/adminS', function (req, res, next) {
   const userdata = new userModel({
     id: req.body.id,
     username: req.body.username,
     name: req.body.name,
     email: req.body.email,
-    role: 'admin', // Set the role to 'admin'
+    role: 'admin',
   });
 
   userModel.register(userdata, req.body.password, function (err, user) {
@@ -261,7 +229,6 @@ router.post('/adminS', function (req, res, next) {
   });
 });
 
-// Logout route
 router.get('/logout', (req, res, next) => {
   req.logout(err => {
     if (err) {
@@ -271,7 +238,6 @@ router.get('/logout', (req, res, next) => {
   });
 });
 
-// Middleware to check if user is logged in
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
