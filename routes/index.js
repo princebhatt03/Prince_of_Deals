@@ -195,7 +195,6 @@ router.post('/reg', function (req, res, next) {
     username: req.body.username,
     name: req.body.name,
     email: req.body.email,
-    role: 'user',
   });
 
   userModel.register(userdata, req.body.password, function (err, user) {

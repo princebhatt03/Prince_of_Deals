@@ -6,11 +6,6 @@ mongoose.connect(
 );
 
 const userSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    unique: true,
-    required: true,
-  },
   username: {
     type: String,
     unique: true,
@@ -23,11 +18,6 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
-    required: true,
-  },
-  role: {
-    type: String,
-    enum: ['user', 'admin'],
     required: true,
   },
 });
